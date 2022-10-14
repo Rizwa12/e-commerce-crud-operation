@@ -15,9 +15,7 @@ let Products = () => {
   let [editProduct, setEditProduct] = useState(null);
   let [loading, setLoading] = useState(false);
   let [toggleReload, setToggleReload] = useState(false);
-  let baseUrl = "http://localhost:5001";
-
-
+  //let baseUrl = "http://localhost:5001";
 
 
   useEffect(() => {
@@ -25,7 +23,7 @@ let Products = () => {
     const getAllProducts = async () => {
       try {
         let response = await axios({
-          url: `${baseUrl}/products`,
+          url: `${state.baseUrl}/products`,
           method: "get",
           withCredentials: true
         })
@@ -73,7 +71,7 @@ let Products = () => {
     onSubmit: async (values) => {
       console.log(values);
       try {
-        let response = await axios.post(`${baseUrl}/product`,
+        let response = await axios.post(`${state.baseUrl}/product`,
           values,
           {
             withCredentials: true
@@ -91,7 +89,7 @@ let Products = () => {
     e.preventDefault();
     try {
       let Updated = await
-        axios.put(`${baseUrl}/product/${editProduct?._id}`,
+        axios.put(`${state.baseUrl}/product/${editProduct?._id}`,
           {
             name: editProduct.name,
             price: editProduct.price,
@@ -201,7 +199,7 @@ let Products = () => {
             <button onClick={async () => {
               try {
                 setLoading(true)
-                let deleted = await axios.delete(`${baseUrl}/product/${eachProduct?._id}`,
+                let deleted = await axios.delete(`${state.baseUrl}/product/${eachProduct?._id}`,
                   {
                     withCredentials: true
                   })
