@@ -50,8 +50,9 @@ export default function Login() {
         });
 
         //let baseUrl = "http://localhost:5001";
+        let baseUrl =  "https://e-commerce-crud-operation-production.up.railway.app/"
         try {
-            let response = await axios.post(`${state.baseUrl}/login`,
+            let response = await axios.post(`${baseUrl}/login`,
                 {
                     email: data.get('email'),
                     password: data.get('password'),
