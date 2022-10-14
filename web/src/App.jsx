@@ -29,10 +29,10 @@ function App() {
   useEffect(() => {
 
     const getProfile = async () => {
-      let baseUrl = "http://localhost:5001";
+      //let baseUrl = "http://localhost:5001";
       try {
         let response = await axios({
-          url: `${baseUrl}/profile`,
+          url: `${state.baseUrl}/profile`,
           method: "get",
           withCredentials: true
         })
