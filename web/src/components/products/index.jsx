@@ -5,11 +5,7 @@ import axios from "axios";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 //import "./index.css"
-
-
-
 let Products = () => {
-
   let { state, dispatch } = useContext(GlobalContext);
   let [products, setProducts] = useState([]);
   let [editProduct, setEditProduct] = useState(null);
