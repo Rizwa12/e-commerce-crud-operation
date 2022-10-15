@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json()); // parsing body
 app.use(cookieParser()); // parsing cookies
 app.use(cors({
-    origin: ['http://localhost:3000','https://ecom-5f0d2.web.app', "*"],
+    origin: ['http://localhost:3000','https://ecommercewebsite-41b68.web.app', "*"],
     credentials: true
 }));
 const userSchema = new mongoose.Schema({
