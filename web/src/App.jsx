@@ -1,5 +1,4 @@
 import './App.css';
-
 import NavBar from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
@@ -17,12 +16,9 @@ import {
 } from "react-router-dom";
 
 import { useEffect, useContext } from "react"
-import { GlobalContext } from './context';
+import { GlobalContext } from './context/context'
 import axios from "axios"
-
-
 function App() {
-
   let { state, dispatch } = useContext(GlobalContext);
 
 
@@ -56,15 +52,10 @@ function App() {
     }
     getProfile();
   }, [])
-
-
-
   return (
     <Router>
   
       <NavBar />
-
-
       <Routes>
       {(state.isLogin===true)?
       <>
@@ -99,15 +90,6 @@ function App() {
           :
           null
         }
-
-
-
-      
-
-      
-
-        
-
       </Routes>
     </Router>
   );

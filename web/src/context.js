@@ -1,16 +1,12 @@
 import React, { createContext, useReducer } from 'react'
 import { reducer } from './reducer';
-
-
 export const GlobalContext = createContext("Initial Value");
-
-
 let data = {
     user: {},
     isLogin: null,
     darkTheme: true,
     myNum: 5,
-    baseUrl: (window.location.href.indexOf("https") === -1) ? "http://localhost:5001" : "https://e-commerce-crud-operation-production.up.railway.app/"
+    baseUrl: (window.location.href.indexOf("https") === -1) ? "http://localhost:5001" : "https://e-commerce-crud-operation-production.up.railway.app"
 }
 export default function ContextProvider({ children }) {
     const [state, dispatch] = useReducer(reducer, data)
