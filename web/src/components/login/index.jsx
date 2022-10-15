@@ -16,10 +16,6 @@ import axios from 'axios';
 import { useContext } from "react";
 import { GlobalContext } from '../../context';
 
-
-
-
-
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -49,10 +45,10 @@ export default function Login() {
             password: data.get('password'),
         });
 
-        //let baseUrl = "http://localhost:5001";
-        let baseUrl =  "https://e-commerce-crud-operation-production.up.railway.app/"
+        let baseUrl = "http://localhost:5001";
+        //let baseUrl =  "https://e-commerce-crud-operation-production.up.railway.app/"
         try {
-            let response = await axios.post(`${baseUrl}/login`,
+            let response = await axios.post(`${state.baseUrl}/login`,
                 {
                     email: data.get('email'),
                     password: data.get('password'),

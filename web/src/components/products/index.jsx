@@ -17,7 +17,6 @@ let Products = () => {
   let [toggleReload, setToggleReload] = useState(false);
   //let baseUrl = "http://localhost:5001";
 
-
   useEffect(() => {
 
     const getAllProducts = async () => {

@@ -14,9 +14,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
 import { useEffect, useContext } from "react"
-import { GlobalContext } from './context/context'
+import { GlobalContext } from './context'
 import axios from "axios"
 function App() {
   let { state, dispatch } = useContext(GlobalContext);
