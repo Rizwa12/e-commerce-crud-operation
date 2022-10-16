@@ -10,15 +10,10 @@ const dbURI = process.env.MONGODBURI||'mongodb+srv://abc:abc@cluster0.dcy08cl.mo
 const app = express();
 app.use(express.json()); // parsing body
 app.use(cookieParser()); // parsing cookies
-// app.use(cors({
-//     origin: ['http://localhost:3000','https://ecommercewebsite-41b68.web.app', "*"],
-//     credentials: true
-// }));
-
-app.use(cors({
-    origin: ['http://localhost:3000','https://ecom-25516.web.app', "*"],
+ app.use(cors({
+     origin: ['http://localhost:3000','https://ecommercewebsite-41b68.web.app', "*"],
     credentials: true
-}));
+ }));
 
 const userSchema = new mongoose.Schema({
 
