@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios"
+import { useContext } from "react";
+import { GlobalContext } from '../../context';
 
 function Copyright(props) {
     return (
@@ -31,7 +33,7 @@ const theme = createTheme();
 
 export default function Signup() {
 
-
+    let { state, dispatch } = useContext(GlobalContext);
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -42,16 +44,18 @@ export default function Signup() {
             password: data.get('password'),
             agree: data.get('agree'),
         });
+        
 
-        let baseUrl = "http://localhost:5000";
+       // let baseUrl = "http://localhost:5000";
         try {
-            let response = await axios.post(`${baseUrl}/signup`, {
+            let response = await axios.post(`${state.baseUrl}/signup`, {
                 firstName: data.get('firstName'),
                 lastName: data.get('lastName'),
                 email: data.get('email'),
                 password: data.get('password'),
             })
             console.log("response: ", response.data.message);
+            
 
         } catch (e) {
             console.log("Error in api call: ", e);

@@ -9,19 +9,18 @@ export default function NavBar() {
   let { state, dispatch } = useContext(GlobalContext);
 
   const logoutHandler = async () => {
-    let baseUrl = "http://localhost:5001";
-    try {
-      let response = await axios.post(`${baseUrl}/logout`, {},
-        {
-          withCredentials: true
-        })
-      console.log("response: ", response.data);
+      try {
+          let response = await axios.post(`${state.baseUrl}/logout`, {},
+              {
+                  withCredentials: true
+              })
+          console.log("response: ", response.data);
 
-      dispatch({ type: "USER_LOGOUT" })
+          dispatch({ type: "USER_LOGOUT" })
 
-    } catch (e) {
-      console.log("Error in api call: ", e);
-    }
+      } catch (e) {
+          console.log("Error in api call: ", e);
+      }
   }
 
 
