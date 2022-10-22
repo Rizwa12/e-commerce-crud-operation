@@ -15,6 +15,8 @@ let Products = () => {
     let [loading, setLoading] = useState(false);
 
     let [toggleReload, setToggleReload] = useState(false);
+    //https://e-commerce-crud-operation-production-0f35.up.railway.app
+    let baseUrl = "https://e-commerce-crud-operation-production-0f35.up.railway.app"
 
 
 
@@ -23,7 +25,7 @@ let Products = () => {
         const getAllProducts = async () => {
             try {
                 let response = await axios({
-                    url: `${state.baseUrl}/products`,
+                    url: `${baseUrl}/products`,
                     method: "get",
                     withCredentials: true
                 })
@@ -75,7 +77,7 @@ let Products = () => {
         onSubmit: async (values) => {
             console.log(values);
             try {
-                let response = await axios.post(`${state.baseUrl}/product`,
+                let response = await axios.post(`${baseUrl}/product`,
                     values,
                     {
                         withCredentials: true
@@ -95,7 +97,7 @@ let Products = () => {
 
         try {
             let updated = await
-                axios.put(`${state.baseUrl}/product/${editProduct?._id}`,
+                axios.put(`${baseUrl}/product/${editProduct?._id}`,
                     {
                         name: editProduct.name,
                         price: editProduct.price,
